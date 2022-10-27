@@ -28,7 +28,7 @@ jobs:
         git config --local user.name "Marino van Zelst"
         git config --local user.email "j.m.vanzelst@tilburguniversity.edu"
         git add .
-        git commit -am "Add changes"
+        git commit -m "Add changes"
         git push origin master
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
