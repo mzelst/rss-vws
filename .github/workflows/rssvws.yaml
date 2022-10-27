@@ -1,0 +1,35 @@
+name: RSS Kamerstukken VWS
+on:
+  schedule:
+    # Runs every 4 hours
+    - cron: '1 */4 * * *'
+
+jobs: 
+  autoscrape:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Load repo and install R
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+
+    # Set-up R
+    - name: Install packages
+      run: |
+        R -e 'install.packages("tidyRSS")'
+    # Run R script
+    - name: RSS VWS
+      run: Rscript rss_vws.R
+      
+ # Add new files in data folder, commit along with other modified files, push
+    - name: Commit files
+      run: |
+        git config --local user.name "Marino van Zelst"
+        git config --local user.email "j.m.vanzelst@tilburguniversity.edu"
+        git add .
+        git commit -am "Add changes"
+        git push origin master
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
