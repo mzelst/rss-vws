@@ -2,7 +2,7 @@ name: RSS Kamerstukken VWS
 on:
   schedule:
     # Runs every 4 hours
-    - cron: '1 */4 * * *'
+    - cron: '*/5 * * * *'
 
 jobs: 
   autoscrape:
