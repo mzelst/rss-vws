@@ -4,7 +4,7 @@ on:
     # Runs every 4 hours
     - cron: '*/5 * * * *'
 
-jobs: 
+jobs:
   autoscrape:
     # The type of runner that the job will run on
     runs-on: windows-latest
@@ -16,12 +16,13 @@ jobs:
 
     # Set-up R
     - name: Install dependencies
-      run: install.packages(c("tidyRSS"), type = "win.binary")
-        shell: Rscript {0}
+      run: |
+      install.packages("tidyRSS")
+      shell: Rscript {0}
     # Run R script
     - name: RSS VWS
       run: Rscript rss_vws.R
-      
+
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
       run: |
