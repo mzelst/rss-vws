@@ -16,8 +16,7 @@ jobs:
 
     # Set-up R
     - name: Install dependencies
-      run:
-      install.packages("tidyRSS")
+      run: install.packages("tidyRSS")
       shell: Rscript {0}
     # Run R script
     - name: RSS VWS
