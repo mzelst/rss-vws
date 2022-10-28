@@ -16,7 +16,7 @@ jobs:
 
     # Set-up R
     - name: Install dependencies
-      run: |
+      run:
       install.packages("tidyRSS")
       shell: Rscript {0}
     # Run R script
