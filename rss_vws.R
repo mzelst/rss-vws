@@ -15,4 +15,4 @@ dat.full <- rbind(dat,dat.full)
 
 dat.full <- unique(dat.full)
 
-write.csv(dat.full, file = "output/kamerstukken_vws.csv")
+write.csv(dat.full, file = "output/kamerstukken_vws.csv", row.names = F)
